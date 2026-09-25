@@ -1,3 +1,5 @@
+import unittest
+
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         answer = []
@@ -21,7 +23,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = Solution()
-    print(s.mergeAlternately("abc", "pqr"))
-    print(s.mergeAlternately("ab", "pqrs"))
-    print(s.mergeAlternately("abcd", "pq"))
+    unittest.main()
+
+
+class TestMergeStr(unittest.TestCase):
+    def test_mergeAlter(self):
+        s = Solution()
+        self.assertEqual(s.mergeAlternately("abc", "pqr"), "apbqcr")
+        self.assertEqual(s.mergeAlternately("ab", "pqrs"), "apbqrs")
+        self.assertEqual(s.mergeAlternately("abcd", "pq"), "apbqcd")
